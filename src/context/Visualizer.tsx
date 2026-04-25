@@ -61,7 +61,7 @@ export const SortingAlgorithmProvider = ({
     const contentContainerWidth = contentContainer.clientWidth;
 
     const tempArray: number[] = [];
-    const numLines = contentContainerWidth / 8;
+    const numLines = contentContainerWidth / 20;
     const containerHeight = window.innerHeight;
     const maxLineHeight = Math.max(containerHeight - 420, 100);
     for (let i = 0; i < numLines; i++) {
@@ -90,15 +90,15 @@ export const SortingAlgorithmProvider = ({
   const runAnimation = (animations: AnimationArrayType) => {
     setIsSorting(true);
 
-    const inverseSpeed = (1 / animationSpeed) * 200;
+    const inverseSpeed = (1 / animationSpeed) * 300;
     const arrLines = document.getElementsByClassName(
-      "array-line"
+      "array-line",
     ) as HTMLCollectionOf<HTMLElement>;
 
     const updateClassList = (
       indexes: number[],
       addClassName: string,
-      removeClassName: string
+      removeClassName: string,
     ) => {
       indexes.forEach((index) => {
         arrLines[index].classList.add(addClassName);
@@ -108,7 +108,7 @@ export const SortingAlgorithmProvider = ({
 
     const updateHeightValue = (
       lineIndex: number,
-      newHeight: number | undefined
+      newHeight: number | undefined,
     ) => {
       arrLines[lineIndex].style.height = `${newHeight}px`;
     };
@@ -120,16 +120,16 @@ export const SortingAlgorithmProvider = ({
           updateClassList(
             lineIndexes,
             "change-line-color",
-            "default-line-color"
+            "default-line-color",
           );
           setTimeout(
             () =>
               updateClassList(
                 lineIndexes,
                 "default-line-color",
-                "change-line-color"
+                "change-line-color",
               ),
-            inverseSpeed
+            inverseSpeed,
           );
         } else {
           const [lineIndex, newHeight] = lineIndexes;
@@ -181,7 +181,7 @@ export const useSortingAlgorithmContext = (): SortingAlgorithmContextType => {
   const context = useContext(SortingAlgorithmContext);
   if (context === undefined) {
     throw new Error(
-      "useSortingAlgorithmContext must be used within a SortingAlgorithmProvider"
+      "useSortingAlgorithmContext must be used within a SortingAlgorithmProvider",
     );
   }
   return context;

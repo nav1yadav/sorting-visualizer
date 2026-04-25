@@ -10,7 +10,7 @@ export function generateRandomNumberFromInterval(min: number, max: number) {
 }
 
 export const MNI_ANIMATION_SPEED = 100;
-export const MAX_ANIMATION_SPEED = 400;
+export const MAX_ANIMATION_SPEED = 800;
 
 export const algorithmOptions = [
   { label: "Bubble", value: "bubble" },
@@ -24,7 +24,7 @@ export function generateAnimationArray(
   selectedAlgorithm: SortingAlgorithmType,
   isSorting: boolean,
   array: number[],
-  runAnimation: (animations: [number[], boolean][]) => void
+  runAnimation: (animations: [number[], boolean][]) => void,
 ) {
   switch (selectedAlgorithm) {
     case "bubble":

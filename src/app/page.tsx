@@ -39,7 +39,7 @@ export default function Home() {
       selectedAlgorithm,
       isSorting,
       arrayToSort,
-      runAnimation
+      runAnimation,
     );
   };
 
@@ -120,7 +120,7 @@ export default function Home() {
               {arrayToSort.map((value, index) => (
                 <div
                   key={index}
-                  className="array-line relative w-1 mx-0.5 shadow-lg opacity-70 rounded-lg default-line-color"
+                  className="array-line relative w-6 mx-0.5 shadow-lg opacity-70 rounded-t-sm default-line-color"
                   style={{ height: `${value}px` }}
                 ></div>
               ))}
